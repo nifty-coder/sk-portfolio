@@ -1,0 +1,37 @@
+[debug] [2022-12-30T00:04:50.749Z] ----------------------------------------------------------------------
+[debug] [2022-12-30T00:04:50.752Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\surya\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-12-30T00:04:50.753Z] CLI Version:   11.19.0
+[debug] [2022-12-30T00:04:50.753Z] Platform:      win32
+[debug] [2022-12-30T00:04:50.753Z] Node Version:  v17.2.0
+[debug] [2022-12-30T00:04:50.754Z] Time:          Thu Dec 29 2022 18:04:50 GMT-0600 (Central Standard Time)
+[debug] [2022-12-30T00:04:50.754Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-30T00:04:50.816Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-30T00:04:50.817Z] > authorizing via signed-in user (surya.kasibhatla@gmail.com)
+[debug] [2022-12-30T00:04:50.817Z] [iam] checking project surya-kasibhatla-portfolio for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-12-30T00:04:50.818Z] > refreshing access token with scopes: []
+[debug] [2022-12-30T00:04:50.820Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-12-30T00:04:50.820Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-12-30T00:04:50.981Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2022-12-30T00:04:50.981Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-12-30T00:04:50.981Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/surya-kasibhatla-portfolio:testIamPermissions [none]
+[debug] [2022-12-30T00:04:50.981Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/surya-kasibhatla-portfolio:testIamPermissions x-goog-quota-user=projects/surya-kasibhatla-portfolio
+[debug] [2022-12-30T00:04:50.981Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/surya-kasibhatla-portfolio:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-30T00:04:51.105Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/surya-kasibhatla-portfolio:testIamPermissions 401
+[debug] [2022-12-30T00:04:51.105Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/surya-kasibhatla-portfolio:testIamPermissions {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"ACCESS_TOKEN_TYPE_UNSUPPORTED","metadata":{"method":"google.cloudresourcemanager.v1.Projects.TestIamPermissions","service":"cloudresourcemanager.googleapis.com"}}]}}
+[debug] [2022-12-30T00:04:51.105Z] [iam] error while checking permissions, command may fail: FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2022-12-30T00:04:51.106Z] > refreshing access token with scopes: []
+[debug] [2022-12-30T00:04:51.106Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-12-30T00:04:51.106Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-12-30T00:04:51.201Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2022-12-30T00:04:51.201Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-12-30T00:04:51.202Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/surya-kasibhatla-portfolio [none]
+[debug] [2022-12-30T00:04:51.330Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/surya-kasibhatla-portfolio 401
+[debug] [2022-12-30T00:04:51.330Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/surya-kasibhatla-portfolio {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2022-12-30T00:04:51.330Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2022-12-30T00:04:51.390Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at responseToError (C:\Users\surya\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\surya\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:288:77)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project surya-kasibhatla-portfolio. Please make sure the project exists and your account has permission to access it.

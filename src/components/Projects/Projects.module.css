@@ -1,0 +1,73 @@
+.Icon {
+    width: 6vw;
+    height: 6vh;
+}
+
+.Languages {
+    color: teal;
+}
+
+.Projects {
+    text-align: left;
+    overflow-x: auto;
+    font-size: 3vw;
+    animation: showProjects 0.4s ease-in forwards;
+}
+
+.Table {
+    border: 1px solid goldenrod; 
+    margin-bottom: 0px;
+}
+
+.OverallTable {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0vh;
+}
+
+.TableHeading {
+    border: 1px solid goldenrod;
+    font-weight: bold;
+}
+
+.TableTitle {
+    text-align: left;
+}
+
+.TableFooter {
+    border: 1px solid darkgoldenrod;
+    text-align: center;
+    margin-top: 0vh;
+}
+
+@keyframes showProjects {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(20%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media only screen and (min-width: 786px) {
+    .Projects {
+        width: 44vw;
+        font-size: 0.8vw;
+        overflow-x: hidden;
+    }
+
+    .Table {
+        word-wrap: break-word;
+    }
+
+    .Icon {
+        width: 3vw;
+        height: 5vh;
+    }
+}

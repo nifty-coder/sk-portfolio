@@ -1,0 +1,33 @@
+.Image {
+    width: 20vw;
+    height: 20vw;
+    float: left;
+}
+
+.Icon {
+    width: 25px;
+    height: 25px;
+}
+
+.AboutMe {
+    text-align: left;
+    border: 1px solid saddlebrown;
+    border-width: medium;
+    width: 80%;
+    background-color: lightyellow;
+}
+
+@media only screen and (min-width: 786px) {
+.BasicInfo {
+    width: 100%;
+} 
+
+.Image {
+    width: 6vw;
+    height: 8vw;
+ }
+
+ .AboutMe {
+     width: 100%;
+ }
+}

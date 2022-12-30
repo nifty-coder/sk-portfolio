@@ -1,0 +1,18 @@
+.Packages {
+    width: 89vw;
+}
+
+.Line {
+    width: 100%;
+}
+
+@media only screen and (min-width: 786px) {
+    .Icon {
+        width: 3vw;
+        height: 2vw;
+    }
+
+    .Packages {
+        width: 100%;
+    }
+}

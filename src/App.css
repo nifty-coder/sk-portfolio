@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.Container, .OtherPageGrid {
+  display: grid;
+  grid-template-columns: auto;
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 0px;
+  height: 100%;
+  font-size: 3vw;
+}
+
+#status {
+  text-align: center;
+}
+
+@media only screen and (min-width: 786px) {
+  .Container, .OtherPageGrid {
+    text-align: center;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    font-size: 1vw;
+    overflow-x: hidden;
+  }
+
+  .OtherPageGrid {
+    grid-template-columns: 50% 50%;
+  }
+}
