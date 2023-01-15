@@ -1,14 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const app = (
- <BrowserRouter>
-   <App />
- </BrowserRouter>
+const root = createRoot(document.getElementById('mainDivPortfolio'));
+root.render(
+  <BrowserRouter>
+    {/* <Routes>
+      <Route path='/' element={<App />} />
+      <Route path=''
+    </Routes> */}
+    <App />
+  </BrowserRouter>
 );
-
-ReactDOM.render(app, document.getElementById('mainDivPortfolio'));
 serviceWorker.unregister();

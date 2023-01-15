@@ -4,27 +4,27 @@ import ProjIcon from '../../assets/images/icons/projects.png';
 import GitHubIcon from '../../assets/images/icons/github.png';
 import Card from '../UI/Card';
 import { TransitionGroup } from 'react-transition-group';
-import ErrorModal from '../../helpers/ErrorModal';
-import { useHttpClient } from '../../helpers/http-hook';
+import ErrorModal from '../UI/ErrorModal';
+import { sendRequest, clearError }  from '../../util/fetchApi';
+import { fetchProjectsFromBackend } from '../../util/requests';
 
 const Projects = () => {
-    const { error, sendRequest, clearError } = useHttpClient();
     const [loadedProjects, setLoadedProjects] = useState();
-  
+    const [shouldShowError, setShouldShowError] = useState(false);
+
     useEffect(() => {
-      const fetchProjects = async () => {
-        try {
-          const responseData = await sendRequest(
-            process.env.REACT_APP_BACKEND_API_URL + '/projects');
-          setLoadedProjects(responseData.projects);
-        } catch (err) {}
-      };
-      fetchProjects();
-    }, [sendRequest]);
+      (async () => {
+        const data = await fetchProjectsFromBackend(sendRequest);
+        if(data === undefined || !data) {
+          setShouldShowError(true);
+        }
+        setLoadedProjects(data); 
+      })();
+    }, []);
 
     return (
      <div>
-       <ErrorModal error={error} onClear={clearError} />
+      <ErrorModal show={shouldShowError} error="Failed to fetch projects" onClear={clearError} />
        <Card>
          <h2 className={classes.TableTitle}><img src={ProjIcon} alt="" className={classes.Icon}/> Projects</h2>             
          <span>

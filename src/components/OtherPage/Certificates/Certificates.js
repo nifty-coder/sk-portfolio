@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import classes from './Certificates.module.css';
 import TrophyIcon from '../../../assets/images/icons/trophy.png';
-import ErrorModal from '../../../helpers/ErrorModal';
-import { useHttpClient } from '../../../helpers/http-hook';
+import ErrorModal from '../../UI/ErrorModal';
+import { sendRequest, clearError }  from '../../../util/fetchApi';
 import Card from '../../UI/Card';
+import { fetchCertificatesFromBackend } from '../../../util/requests';
 
 const Certificates = () => {
-  const { error, sendRequest, clearError } = useHttpClient();
   const [loadedCertificates, setLoadedCertificates] = useState();
-
+  const [shouldShowError, setShouldShowError] = useState(false);
+ 
   useEffect(() => {
-    const fetchCertificates = async () => {
-      try {
-        const responseData = await sendRequest(
-          process.env.REACT_APP_BACKEND_API_URL + '/certificates');
-        setLoadedCertificates(responseData.certificates);
-      } catch (err) {}
-    };
-    fetchCertificates();
-  }, [sendRequest]);
+    (async () => {
+      const data = await fetchCertificatesFromBackend(sendRequest);
+      if(data === undefined || !data) {
+        setShouldShowError(true);
+      }
+      setLoadedCertificates(data);  
+    })();
+  }, []);
 
     return (
       <div>
-        <ErrorModal error={error} onClear={clearError} />
+        <ErrorModal show={shouldShowError} error="Failed to fetch Certificates" onClear={clearError} />
         <Card>
         <h2><img src={TrophyIcon} alt="My Certificates" className={classes.Icon} /> Certificates</h2>
     

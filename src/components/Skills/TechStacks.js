@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import TransitionGroup from 'react-transition-group/TransitionGroup';
 import StarIcon from '../../assets/images/icons/star.png';
-import { useHttpClient } from '../../helpers/http-hook';
-import ErrorModal from '../../helpers/ErrorModal';
+import { sendRequest, clearError }  from '../../util/fetchApi';
+import ErrorModal from '../UI/ErrorModal';
 import './Skills.css';
+import { fetchTechStacksFromBackend } from '../../util/requests';
 
 const TechStacks = () => {
-    const { error, sendRequest, clearError } = useHttpClient();
     const [loadedTechStacks, setLoadedTechStacks] = useState();
-  
+    const [shouldShowError, setShouldShowError] = useState(false);
+ 
     useEffect(() => {
-      const fetchTechStacks = async () => {
-        try {
-          const responseData = await sendRequest(
-            process.env.REACT_APP_BACKEND_API_URL + '/techStacks');
-          setLoadedTechStacks(responseData.techs);
-        } catch (err) {}
-      };
-      fetchTechStacks();
-    }, [sendRequest]);
+      (async () => {
+        const data = await fetchTechStacksFromBackend(sendRequest);
+        if(data === undefined || !data) {
+            setShouldShowError(true);
+        }
+        setLoadedTechStacks(data);  
+      })();
+    }, []);
   
     return (
         <div>
-         <ErrorModal error={error} onClear={clearError} />
+         <ErrorModal show={shouldShowError} error="Failed to fetch the tech stacks" onClear={clearError} />
          <h4><u>Programming</u></h4>
          <TransitionGroup component="table">
            <thead className="TableInfo">

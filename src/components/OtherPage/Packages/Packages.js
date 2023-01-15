@@ -1,27 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import ErrorModal from '../../../helpers/ErrorModal';
-import { useHttpClient } from '../../../helpers/http-hook';
+import ErrorModal from '../../UI/ErrorModal';
+import { sendRequest, clearError }  from '../../../util/fetchApi';
+import { fetchPackagesFromBackend } from '../../../util/requests';
 import Card from '../../UI/Card';
 import classes from './Packages.module.css';
 
 const Packages = () => {
-    const { error, sendRequest, clearError } = useHttpClient();
     const [loadedPackages, setLoadedPackages] = useState();
-  
+    const [shouldShowError, setShouldShowError] = useState(false);
+ 
     useEffect(() => {
-      const fetchPackages = async () => {
-        try {
-          const responseData = await sendRequest(
-            process.env.REACT_APP_BACKEND_API_URL + '/packages');
-          setLoadedPackages(responseData.packages);
-        } catch (err) {}
-      };
-      fetchPackages();
-    }, [sendRequest]);
+      (async () => {
+        const data = await fetchPackagesFromBackend(sendRequest);
+        if(data === undefined || !data) {
+          setShouldShowError(true);
+        }
+        setLoadedPackages(data);   
+      })();
+    }, []);
 
     return (
         <div>
-          <ErrorModal error={error} onClear={clearError} />
+          <ErrorModal show={shouldShowError} error="Failed to fetch packages" onClear={clearError} />
           <Card>
             <h2>My Packages</h2>
             {loadedPackages && loadedPackages.map((loadedPackage, index) => (

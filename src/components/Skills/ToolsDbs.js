@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import TransitionGroup from 'react-transition-group/TransitionGroup';
 import StarIcon from '../../assets/images/icons/star.png';
-import { useHttpClient } from '../../helpers/http-hook';
-import ErrorModal from '../../helpers/ErrorModal';
+import { sendRequest, clearError }  from '../../util/fetchApi';
+import ErrorModal from '../UI/ErrorModal';
 import './Skills.css';
+import { fetchToolsDbsFromBackend } from '../../util/requests';
 
 const ToolsDbs = () => {
-    const { error, sendRequest, clearError } = useHttpClient();
     const [loadedToolsDbs, setLoadedToolsDbs] = useState();
-  
+    const [shouldShowError, setShouldShowError] = useState(false);
+ 
     useEffect(() => {
-      const fetchToolsDbs = async () => {
-        try {
-          const responseData = await sendRequest(
-            process.env.REACT_APP_BACKEND_API_URL + '/toolsOrDbs');
-          setLoadedToolsDbs(responseData.toolsDbs);
-        } catch (err) {}
-      };
-      fetchToolsDbs();
-    }, [sendRequest]);
+      (async () => {
+        const data = await fetchToolsDbsFromBackend(sendRequest);
+        if(data === undefined || !data) {
+            setShouldShowError(true);
+        }
+        setLoadedToolsDbs(data);   
+      })();
+    }, []);
   
     return (
         <div>
-         <ErrorModal error={error} onClear={clearError} />
+         <ErrorModal show={shouldShowError} error="Failed to fetch the tools/db experience" onClear={clearError} />
          <h4><u>Tools</u></h4> 
          <TransitionGroup component="table">
          <thead className="TableInfo">

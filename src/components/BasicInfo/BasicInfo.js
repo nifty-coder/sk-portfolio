@@ -6,28 +6,27 @@ import MailIcon from '../../assets/images/icons/mail.png';
 import EduIcon from '../../assets/images/icons/education.jpg';
 import LocationIcon from '../../assets/images/icons/location.png';
 import InfoIcon from '../../assets/images/icons/info.png';
-import { useHttpClient } from '../../helpers/http-hook';
-import ErrorModal from '../../helpers/ErrorModal';
+import { sendRequest, clearError }  from '../../util/fetchApi';
+import ErrorModal from '../UI/ErrorModal';
+import { fetchInfoFromBackend } from '../../util/requests';
 
 const BasicInfo = () => {
-  const { error, sendRequest, clearError } = useHttpClient();
   const [loadedInfo, setLoadedInfo] = useState();
-
+  const [shouldShowError, setShouldShowError] = useState(false);
+ 
   useEffect(() => {
-    const fetchInfo = async () => {
-      try {
-        const responseData = await sendRequest(
-          process.env.REACT_APP_BACKEND_API_URL + '/basicInfo'
-        );
-        setLoadedInfo(responseData.basicInfo);
-      } catch (err) {}
-    };
-    fetchInfo();
-  }, [sendRequest]);
+    (async () => {
+      const data = await fetchInfoFromBackend(sendRequest);
+      if(data === undefined || !data) {
+        setShouldShowError(true);
+      }
+      setLoadedInfo(data);  
+    })();
+  }, []);
 
     return (
       <div className={classes.BasicInfo}>
-        <ErrorModal error={error} onClear={clearError} />
+        <ErrorModal show={shouldShowError} error="Failed to fetch basic info" onClear={clearError} />
         <Card>
         {loadedInfo && loadedInfo.map(lin => (
           <Fragment key={lin}>
