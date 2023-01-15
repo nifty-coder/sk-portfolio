@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4e022bef.chunk.css",
+    "main.js": "/static/js/main.ad56ddfb.chunk.js",
+    "main.js.map": "/static/js/main.ad56ddfb.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.e27120bc.js",
+    "runtime-main.js.map": "/static/js/runtime-main.e27120bc.js.map",
+    "static/js/2.fc84ac18.chunk.js": "/static/js/2.fc84ac18.chunk.js",
+    "static/js/2.fc84ac18.chunk.js.map": "/static/js/2.fc84ac18.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.4e022bef.chunk.css.map": "/static/css/main.4e022bef.chunk.css.map",
+    "static/js/2.fc84ac18.chunk.js.LICENSE.txt": "/static/js/2.fc84ac18.chunk.js.LICENSE.txt",
+    "static/media/education.2be0f704.jpg": "/static/media/education.2be0f704.jpg",
+    "static/media/info.d3756e22.png": "/static/media/info.d3756e22.png",
+    "static/media/location.2289fdf6.png": "/static/media/location.2289fdf6.png",
+    "static/media/mail.6cd1b25e.png": "/static/media/mail.6cd1b25e.png",
+    "static/media/myself.0926009b.jpeg": "/static/media/myself.0926009b.jpeg",
+    "static/media/projects.ee06ce5f.png": "/static/media/projects.ee06ce5f.png",
+    "static/media/star.3038b28e.png": "/static/media/star.3038b28e.png",
+    "static/media/trophy.1a39854b.png": "/static/media/trophy.1a39854b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e27120bc.js",
+    "static/js/2.fc84ac18.chunk.js",
+    "static/css/main.4e022bef.chunk.css",
+    "static/js/main.ad56ddfb.chunk.js"
+  ]
+}
