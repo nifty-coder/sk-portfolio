@@ -6,10 +6,6 @@ import * as serviceWorker from './serviceWorker';
 const root = createRoot(document.getElementById('mainDivPortfolio'));
 root.render(
   <BrowserRouter>
-    {/* <Routes>
-      <Route path='/' element={<App />} />
-      <Route path=''
-    </Routes> */}
     <App />
   </BrowserRouter>
 );
