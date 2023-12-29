@@ -3,7 +3,7 @@ import classes from './Certificates.module.css';
 import TrophyIcon from '../../../assets/images/icons/trophy.png';
 import ErrorModal from '../../UI/ErrorModal';
 import { sendRequest, clearError }  from '../../../util/fetchApi';
-import Card from '../../UI/Card';
+import Card from 'react-bootstrap/Card';
 import { fetchCertificatesFromBackend } from '../../../util/requests';
 
 const Certificates = () => {

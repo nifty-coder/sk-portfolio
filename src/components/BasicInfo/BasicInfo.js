@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import Card from '../UI/Card';
+import Card from 'react-bootstrap/Card';
 import classes from './BasicInfo.module.css';
-import MyPicture from '../../assets/images/myself.jpeg';
+// import MyPicture from '../../assets/images/myself.jpeg';
 import MailIcon from '../../assets/images/icons/mail.png';
 import EduIcon from '../../assets/images/icons/education.jpg';
 import LocationIcon from '../../assets/images/icons/location.png';
@@ -29,8 +29,8 @@ const BasicInfo = () => {
         <ErrorModal show={shouldShowError} error="Failed to fetch basic info" onClear={clearError} />
         <Card>
         {loadedInfo && loadedInfo.map(lin => (
-          <Fragment key={lin}>
-            <img src={MyPicture} alt="Me" className={classes.Image} />
+          <Fragment key={lin.id}>
+            <img src={lin.imageUrl} alt="Me" className={classes.Image} />
               <h1>{lin.name}</h1>
        
               <h4><img src={LocationIcon} alt="Location" className={classes.Icon} /> {lin.location}</h4>

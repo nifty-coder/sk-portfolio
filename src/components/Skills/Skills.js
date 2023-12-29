@@ -1,6 +1,6 @@
 import React from 'react';
 import SkillsIcon from '../../assets/images/icons/skills.png';
-import Card from '../UI/Card';
+import Card from 'react-bootstrap/Card';
 import TechStacks from './TechStacks';
 import ToolsDbs from './ToolsDbs';
 import './Skills.css';

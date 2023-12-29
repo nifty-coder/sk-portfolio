@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ErrorModal from '../../UI/ErrorModal';
 import { sendRequest, clearError }  from '../../../util/fetchApi';
 import { fetchPackagesFromBackend } from '../../../util/requests';
-import Card from '../../UI/Card';
+import Card from 'react-bootstrap/Card';
 import classes from './Packages.module.css';
 
 const Packages = () => {

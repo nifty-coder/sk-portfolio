@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import classes from './Projects.module.css';
 import ProjIcon from '../../assets/images/icons/projects.png';
 import GitHubIcon from '../../assets/images/icons/github.png';
-import Card from '../UI/Card';
+import Card from 'react-bootstrap/Card';
 import { TransitionGroup } from 'react-transition-group';
 import ErrorModal from '../UI/ErrorModal';
 import { sendRequest, clearError }  from '../../util/fetchApi';
