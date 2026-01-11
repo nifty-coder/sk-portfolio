@@ -156,7 +156,7 @@ const Projects = () => {
         ))}
       </motion.div>
       <div className="text-center mt-16">
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-indigo-600 font-bold hover:underline text-lg">
+        <a href="https://github.com/nifty-coder" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-indigo-600 font-bold hover:underline text-lg">
           View all projects on GitHub <ArrowRight className="ml-2 w-5 h-5" />
         </a>
       </div>

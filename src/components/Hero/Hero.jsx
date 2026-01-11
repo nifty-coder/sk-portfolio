@@ -48,7 +48,7 @@ const Hero = () => {
                             View My Work <ArrowRight className="ml-2 w-5 h-5" />
                         </Link>
                         <a
-                            href="https://www.linkedin.com/in/suryakasibhatla"
+                            href="https://www.linkedin.com/in/surya-kasibhatla"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-full font-bold text-lg transition-all backdrop-blur-sm border border-white/10 flex items-center"
